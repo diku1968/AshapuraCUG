@@ -3,16 +3,36 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>Ashapura CUG</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <div *ngFor="let item of myCuglists | async">
+        <ion-card>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="{{item.picture}}">
+            </ion-avatar>
+            <h2>{{item.name}} {{item.email}}</h2>
+            <p>{{item.company}} - {{item.department}} - {{item.desig}}</p>
+            <p>{{item.city}} - {{item.birthday}} - </p>
+            </ion-item>
+          <ion-card-content>
+            
+          </ion-card-content>
+        </ion-card>
+        <ion-card-content>
+            <a href="tel:+{{item.mobile}}">{{item.mobile}}</a>
+            <a href="email:+{{item.email}}">{{item.email}}</a>
+        </ion-card-content>
+        <ion-card-content>
+            
+        </ion-card-content>
+        
+      </div>
+  </ion-row>
+  
 </ion-content>
